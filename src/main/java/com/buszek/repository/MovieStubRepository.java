@@ -1,8 +1,9 @@
 package com.buszek.repository;
 
 import com.buszek.model.Movie;
-import com.buszek.model.Room;
 import com.buszek.model.Screening;
+import com.buszek.model.Seat;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -13,35 +14,22 @@ import java.util.List;
 
 @Component
 public class MovieStubRepository {
+
     List<Movie> movies = new ArrayList<>();
 
-    MovieStubRepository(){
+    MovieStubRepository(@Autowired
+                                ScreeningStubRepository screeningStubRepository) {
         movies.add(new Movie(
                 "Rambo 6",
                 Duration.ofMinutes(96),
-                Arrays.asList(new Screening(
-                        1L,
-                        LocalDateTime.now(),
-                        new Room("1", new ArrayList<>(), new ArrayList<>()),
-                        new ArrayList<>()
-                ))));
+                Arrays.asList(screeningStubRepository.findScreeningByIdWithoutReservations(1l))));
         movies.add(new Movie("Planeta małp", Duration.ofMinutes(126),
-                Arrays.asList(new Screening(
-                        2L,
-                        LocalDateTime.of(2019,5,9,19,00),
-                        new Room("2", new ArrayList<>(), new ArrayList<>()),
-                        new ArrayList<>()
-                ))));
+                Arrays.asList(screeningStubRepository.findScreeningByIdWithoutReservations(2l))));
         movies.add(new Movie("T-34", Duration.ofMinutes(90),
-                Arrays.asList(new Screening(
-                        3L,
-                        LocalDateTime.of(2019,5,9,20,00),
-                        new Room("3", new ArrayList<>(), new ArrayList<>()),
-                        new ArrayList<>()
-                ))));
+                Arrays.asList(screeningStubRepository.findScreeningByIdWithoutReservations(3l))));
     }
 
-    public List<Movie> findAllMovies(){
+    public List<Movie> findAllMovies() {
         return movies;
     }
 }

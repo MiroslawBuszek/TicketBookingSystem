@@ -8,15 +8,14 @@ public class Screening {
 
     private Long id;
     private LocalDateTime displayDate;
-    //private Movie movies;
-    private Room rooms;
-    private List<Reservation> reservations;
+    private String roomName;
+    private List<Seat> seats;
 
-    public Screening(Long id, LocalDateTime displayDate, Room rooms, List<Reservation> reservations) {
+    public Screening(Long id, LocalDateTime displayDate, String roomName, List<Seat> seats) {
         this.id = id;
         this.displayDate = displayDate;
-        this.rooms = rooms;
-        this.reservations = reservations;
+        this.roomName = roomName;
+        this.seats = seats;
     }
 
     public LocalDateTime getDisplayDate() {
@@ -27,20 +26,20 @@ public class Screening {
         this.displayDate = displayDate;
     }
 
-    public Room getRooms() {
-        return rooms;
+    public String getRooms() {
+        return roomName;
     }
 
-    public void setRooms(Room rooms) {
-        this.rooms = rooms;
+    public void setRooms(String roomName) {
+        this.roomName = roomName;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Seat> getReservations() {
+        return seats;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservations(List<Seat> reservations) {
+        this.seats = reservations;
     }
 
     public Long getId() {

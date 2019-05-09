@@ -9,7 +9,5 @@ public class Reservation {
     private String surname;
     private LocalDateTime expirationTime;
     private BigDecimal price;
-    private Seat seat;
-    private Screening screening;
 
 }
