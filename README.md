@@ -28,7 +28,7 @@ build.sh
 
 Run second script
 ```sh
-demo.sh	
+www.localhost:5000/books
+www.localhost:5000/users
+
 ```
-
-
